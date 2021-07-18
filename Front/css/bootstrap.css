@@ -1,0 +1,13 @@
+
+.card {
+    
+    cursor: pointer;
+    margin: 10px auto;
+    padding: 0;
+}
+.card-img-top {
+    width: 100%;
+}
+.figure-caption {
+    padding: 10px;
+}
