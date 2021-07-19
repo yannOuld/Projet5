@@ -10,29 +10,47 @@
     <link rel="cannonical" href="">
     <!-- Bootstrap CSS & Other CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Front/css/bootstrap.css">
+    <script src="./Front/js/code.js" defer></script>
   </head>
   <body>
-    <script src="./routes/camera.js"></script>
-    <script src="./app.js"></script>
-    <script src="./controllers/camera.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <div class="container-fluid">
-        <header id="header" class="fixed-top row">
-            <h1>Orinoco</h1>
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="panier.html">Votre panier</a>
-                </li>
-            </ul>
-        </header>
+      <header id="header" class="container-fluid">
+        <div class="d-flex justify-content-between bg-dark">
+                <h1 class="text-light ml-5 mt-3">Orinocam</h1>
+                <nav class="nav mr-5 mt-5">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="panier.html">Votre panier<span class="ml-2 text-dark border p-1 bg-light">0</span></a>
+                    </li>
+                </nav>
+        </div>
+        <div class="jumbotron banner-product">
+            <div class="container">
+                <h1 class="text-light">Nos modèles de caméras vintage.</h1>
+                <p class="text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro unde nulla aspernatur harum fugiat, quia blanditiis in eius. Maiores voluptatum quasi obcaecati commodi maxime a et hic aliquam magnam similique.</p>
+            </div>
+        </div>
+    </header>
         <div class="container-fluid">
-          
+          <div class="row">
+            <figure class="card col-6 mx-auto">
+              <img src="Front/images/vcam_1.jpg" class="card-img-top" alt="">
+              <figcaption class="card-body text-xs-right" id="item">
+                  <h2 class="card-title"></h2>
+                  <p class=" card-text"></p>
+                  <p class="card-price"></p>
+                  <a href="#" class="btn btn-primary btn-lg add-panier" id="add">Ajouter au Panier</a>
+                </figcaption>
+          </figure>
+          </div>
         </div>
        
     </div>
-
+    <footer class="container-fluid bg-dark bottom">
+      <p class="text-light text-center py-3">®Lorem ipsum dolor sit amet consectetur adipisicing elit. ipisci officia provident.</p>
+    </footer>
   </body>
 </html>

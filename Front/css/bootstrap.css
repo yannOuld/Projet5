@@ -1,8 +1,9 @@
-
+body {
+    width: 100%;
+}
 .card {
-    
     cursor: pointer;
-    margin: 10px auto;
+    
     padding: 0;
 }
 .card-img-top {
@@ -10,4 +11,14 @@
 }
 .figure-caption {
     padding: 10px;
+}
+.banner {
+    background-image: url(/Front/images/antonio-scant-NrcF80ZC8EI-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.banner-product {
+    background-image: url(/Front/images/michael-oxendine-J6m-PwD55Hg-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
 }
