@@ -1,59 +1,72 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <title>Orinocam - Accueil</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keyword" content=""/>
-    <meta name="description" content="">
-    <link rel="cannonical" href="">
-    <!-- Bootstrap CSS & Other CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./Front/css/bootstrap.css">
-    
-  </head>
-  <body>
-    <div class="container-fluid">
-      <header id="header" class="container-fluid">
-        <div class="d-flex justify-content-between bg-dark">
-                <h1 class="text-light ml-5 mt-3">Orinocam</h1>
-                <nav class="nav mr-5 mt-5">
-                    <li class="nav-item">
-                        <a class="nav-link active text-light" href="index.html">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="panier.html">Votre panier<span class="ml-2 text-dark border p-1 bg-light">0</span></a>
-                    </li>
-                </nav>
+
+<head>
+  <title>Orinocam - Accueil</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keyword" content="" />
+  <meta name="description" content="">
+  <link rel="cannonical" href="">
+  <!-- Bootstrap CSS & Other CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./Front/css/bootstrap.css">
+  <script src="/Front/js/product.js" defer></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header id="header" class="container-fluid">
+      <div class="d-flex justify-content-between bg-dark">
+        <h1 class="text-light ml-5 mt-3">Orinocam</h1>
+        <nav class="nav mr-5 mt-5">
+          <li class="nav-item">
+            <a class="nav-link active text-light" href="index.html">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="panier.html">Votre panier<span
+                class="ml-2 text-dark border p-1 bg-light">0</span></a>
+          </li>
+        </nav>
+      </div>
+      <div class="jumbotron banner-product">
+        <div class="container">
+          <h1 class="text-light">Nos modèles de caméras vintage.</h1>
+          <p class="text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro unde nulla aspernatur
+            harum fugiat, quia blanditiis in eius. Maiores voluptatum quasi obcaecati commodi maxime a et hic aliquam
+            magnam similique.</p>
         </div>
-        <div class="jumbotron banner-product">
-            <div class="container">
-                <h1 class="text-light">Nos modèles de caméras vintage.</h1>
-                <p class="text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro unde nulla aspernatur harum fugiat, quia blanditiis in eius. Maiores voluptatum quasi obcaecati commodi maxime a et hic aliquam magnam similique.</p>
-            </div>
-        </div>
+      </div>
     </header>
-        <div class="container-fluid">
-          <div class="row">
-            <figure class="card col-6 mx-auto">
-              <img src="Front/images/vcam_1.jpg" class="card-img-top" alt="">
-              <figcaption class="card-body text-xs-right" id="item">
-                  <h2 class="card-title"></h2>
-                  <p class=" card-text"></p>
-                  <p class="card-price"></p>
-                  <select name="card-lenses d-block my-4" id="option-lenses">
-                    
-                  </select>
-                  <a href="#" class="btn btn-primary btn-lg add-panier d-block" id="add-to">Ajouter au Panier</a>
-                </figcaption>
-          </figure>
-          </div>
-        </div>
-       
+    <div class="container" id="product-wrapper">
+
     </div>
-    <footer class="container-fluid bg-dark bottom">
-      <p class="text-light text-center py-3">®Lorem ipsum dolor sit amet consectetur adipisicing elit. ipisci officia provident.</p>
-    </footer>
-  </body>
+
+    <template id="template">
+      <figure id="figure" class=" shadow card col-9 mx-auto ">
+        <img src="" class="card-img-top" alt="">
+        <figcaption class="card-body text-xs-right p-5" id="figcapt">
+          <h2 class="card-title"></h2>
+          <p class=" card-text"></p>
+          <p class="card-price"></p>
+          <div class=" d-flex justify-content-around container my-5">
+            <label for="select_option" class="label"></label>
+            <select name="select_option" id="select_option" class="select-option">
+            </select>
+          </div>
+          <button type="submit" id="submit-btn"
+            class="btn btn-lg btn-block btn-outline-dark add-panier  d-block mt-2"></a>
+        </figcaption>
+      </figure>
+    </template>
+  </div>
+
+  <footer class="container-fluid bg-dark bottom">
+    <p class="text-light text-center py-3">®Lorem ipsum dolor sit amet consectetur adipisicing elit. ipisci officia
+      provident.</p>
+  </footer>
+</body>
+
 </html>
