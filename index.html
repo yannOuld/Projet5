@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./Front/css/bootstrap.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
+        integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
     <script src="./Front/js/index.js" defer></script>
 </head>
 
@@ -21,13 +24,29 @@
         <div class="d-flex justify-content-between bg-dark">
             <h1 class="text-light ml-5 mt-3">Orinocam</h1>
             <nav class="nav mr-5 mt-5">
-                <li class="nav-item">
-                    <a class="nav-link active text-light" href="index.html">Accueil</a>
-                </li>
-                <li class="nav-item cart-link">
-                    <a class="nav-link text-light" href="panier.html">Votre panier <span
-                            class="text-dark border p-1 bg-light">0</span></a>
-                </li>
+                <ul class="d-flex">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                            aria-controls="collapseExample" class="nav-link text-light" href="panier.html">Votre
+                            panier</a>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-shopping-cart"></i> <span id="cart"
+                                    class="ml-2 text-dark border p-1 bg-light"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdown">
+                                <li id="itempanier"></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </nav>
         </div>
         <div class="jumbotron banner">

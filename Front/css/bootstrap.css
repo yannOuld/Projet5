@@ -12,7 +12,7 @@ body {
   padding: 10px;
 }
 .banner {
-  background-image: url(/Front/images/antonio-scant-NrcF80ZC8EI-unsplash.jpg);
+  background: url(/Front/images/antonio-scant-NrcF80ZC8EI-unsplash.jpg);
   background-position: center;
   background-size: cover;
 }
@@ -20,4 +20,7 @@ body {
   background-image: url(/Front/images/michael-oxendine-J6m-PwD55Hg-unsplash.jpg);
   background-position: center;
   background-size: cover;
+}
+ul {
+  list-style: none;
 }

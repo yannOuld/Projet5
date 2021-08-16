@@ -27,7 +27,7 @@ function createCamera(camera) {
     <figcaption class="card-body text-xs-right" id="item">
     <h2 class="card-title">${camera.name}</h2>
     <p class=" card-text text-truncate">${camera.description}</p>
-    <p class="card-price">Prix : ${camera.price} €</p>
+    <p class="card-price">Prix : ${camera.price / 100} €</p>
     <div>
     <span>${camera.lenses}</span>
     </div>
