@@ -1,103 +1,74 @@
 <!doctype html>
 <html lang="fr">
-  <head>
+
+<head>
     <title>Orinocam - Accueil</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keyword" content=""/>
+    <meta name="keyword" content="" />
     <meta name="description" content="">
     <link rel="cannonical" href="">
     <!-- Bootstrap CSS & Other CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./Front/css/bootstrap.css">
-  </head>
-  <body>
-    <script src="./routes/camera.js"></script>
-    <script src="./app.js"></script>
-    <script src="./controllers/camera.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <div class="container-fluid">
-        <header id="header" class="container-fluid">
-            <div class="d-flex justify-content-between">
-                    <h1>Orinocam</h1>
-                    <nav class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="panier.html">Votre panier</a>
-                        </li>
-                    </ul>
-            </div>
-            <div class="jumbotron">
-                <h1>Les caméras</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro unde nulla aspernatur harum fugiat, quia blanditiis in eius. Maiores voluptatum quasi obcaecati commodi maxime a et hic aliquam magnam similique.</p>
-            </div>
-        </header>
-        <div class="container-fluid">
-            <div class="container  d-flex justify-content-between">
-                <div class="row">
-                        
-                            <figure class="card col-xs-12 col-sm-12 col-lg-4 col-md-5">
-                                <img src="Front/images/vcam_1.jpg" class="card-img-top" alt="">
-                                <figcaption class="card-body text-xs-right" id="item1">
-                                    <h2 class="card-title"></h2>
-                                    <p class=" card-text"></p>
-                                    <p></p>
-                                    
-                                </figcaption>
-                            </figure>
-                       
-                        
-                            <figure class="card col-xs-12 col-sm-12 col-lg-4 col-md-5">
-                                <img src="Front/images/vcam_2.jpg" class="card-img-top" alt="">
-                                <figcaption class="card-body text-xs-right" id="item2">
-                                    <h2 class="card-title"></h2>
-                                    <p class="card-text"></p>
-                                    <p></p>
-                                   
-                                </figcaption>
-                            </figure>
-                     
-                        
-                            <figure class="card col-xs-12 col-sm-12 col-lg-4 col-md-5">
-                                <img src="Front/images/vcam_3.jpg" class="card-img-top" alt="">
-                                <figcaption class="card-body text-xs-right" id="item3">
-                                    <h2 class="card-title"></h2>
-                                    <p class="card-text"></p>
-                                    <p></p>
-                                   
-                                </figcaption>
-                            </figure>
-                 
-                      
-                            <figure class="card col-xs-12 col-sm-12 col-lg-4 col-md-5">
-                                <img src="Front/images/vcam_4.jpg" class="card-img-top" alt="">
-                                <figcaption class="card-body text-xs-right" id="item4">
-                                    <h2 class="card-title"></h2>
-                                    <p class="card-text"></p>
-                                    <p></p>
-                                  
-                                </figcaption>
-                            </figure>
-                      
-                        
-                            <figure class="card col-xs-12 col-sm-12 col-lg-4 col-md-5">
-                                <img src="Front/images/vcam_5.jpg" class="card-img-top" alt="">
-                                <figcaption class="card-body text-xs-right" id="item5">
-                                    <h2 class="card-title"></h2>
-                                    <p class="card-text"></p>
-                                    <p></p>
-                                    
-                                </figcaption>
-                            </figure>
-                    
-                </div>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
+        integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <script src="./Front/js/index.js" defer></script>
+</head>
+
+<body>
+    <header id="header" class="container-fluid">
+        <div class="d-flex justify-content-between bg-dark">
+            <h1 class="text-light ml-5 mt-3">Orinocam</h1>
+            <nav class="nav mr-5 mt-5">
+                <ul class="d-flex">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                            aria-controls="collapseExample" class="nav-link text-light" href="panier.html">Votre
+                            panier</a>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-shopping-cart"></i> <span id="cart"
+                                    class="ml-2 text-dark border p-1 bg-light"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdown">
+                                <li id="itempanier"></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="jumbotron banner">
+            <div class="container">
+                <h1 class="text-light">Nos modèles de caméras vintage.</h1>
+                <p class="text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro unde nulla
+                    aspernatur harum fugiat, quia blanditiis in eius. Maiores voluptatum quasi obcaecati commodi maxime
+                    a et hic aliquam magnam similique.</p>
             </div>
         </div>
-        <footer class="container-fluid dark"></footer>
+    </header>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row d-flex justify-content-around" id="wrapper">
+            </div>
+        </div>
     </div>
-    <script src="./Front/js/code.js"></script>
-  </body>
-  </html>
+
+    <footer class="container-fluid bg-dark">
+        <p class="text-light text-center py-3">®Lorem ipsum dolor sit amet consectetur adipisicing elit. ipisci officia
+            provident.</p>
+    </footer>
+</body>
+
+</html>

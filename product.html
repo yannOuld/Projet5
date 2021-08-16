@@ -1,38 +1,93 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <title>Orinocam - Accueil</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keyword" content=""/>
-    <meta name="description" content="">
-    <link rel="cannonical" href="">
-    <!-- Bootstrap CSS & Other CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-    <script src="./routes/camera.js"></script>
-    <script src="./app.js"></script>
-    <script src="./controllers/camera.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <div class="container-fluid">
-        <header id="header" class="fixed-top row">
-            <h1>Orinoco</h1>
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="panier.html">Votre panier</a>
-                </li>
-            </ul>
-        </header>
-        <div class="container-fluid">
-          
+
+<head>
+  <title>Orinocam - Accueil</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keyword" content="" />
+  <meta name="description" content="">
+  <link rel="cannonical" href="">
+  <!-- Bootstrap CSS & Other CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
+    integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+  <link rel="stylesheet" href="./Front/css/bootstrap.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"
+    defer></script>
+  <script src="/Front/js/product.js" defer></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header id="header" class="container-fluid">
+      <div class="d-flex justify-content-between bg-dark">
+        <h1 class="text-light ml-5 mt-3">Orinocam</h1>
+        <nav class="nav mr-5 mt-5">
+          <ul class="d-flex">
+            <li class="nav-item">
+              <a class="nav-link active text-light" href="index.html">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                aria-controls="collapseExample" class="nav-link text-light" href="panier.html">Votre panier</a>
+            </li>
+            <li>
+              <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-shopping-cart"></i> <span id="cart"
+                    class="ml-2 text-dark border p-1 bg-light"></span>
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownlist">
+                  <li id="itempanier"></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="jumbotron banner-product">
+        <div class="container">
+          <h1 class="text-light">Nos modèles de caméras vintage.</h1>
+          <p class="text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro unde nulla aspernatur
+            harum fugiat, quia blanditiis in eius. Maiores voluptatum quasi obcaecati commodi maxime a et hic aliquam
+            magnam similique.</p>
         </div>
-       
+      </div>
+    </header>
+    <div class="container" id="product-wrapper">
+
     </div>
 
-  </body>
+    <template id="template">
+      <figure id="figure" class=" shadow card col-9 mx-auto ">
+        <img src="" class="card-img-top" alt="">
+        <figcaption class="card-body text-xs-right p-5" id="figcapt">
+          <h2 class="card-title"></h2>
+          <p class=" card-text"></p>
+          <p class="card-price"></p>
+          <div class=" d-flex justify-content-around container my-5">
+            <label for="select_option" class="label"></label>
+            <select name="select_option" id="select_option" class="select-option">
+            </select>
+          </div>
+          <button type="submit" id="add-btn"
+            class="add-btn btn btn-lg btn-block btn-outline-dark add-panier  d-block mt-2"></a>
+        </figcaption>
+      </figure>
+    </template>
+  </div>
+
+  <footer class="container-fluid bg-dark bottom">
+    <p class="text-light text-center py-3">®Lorem ipsum dolor sit amet consectetur adipisicing elit. ipisci officia
+      provident.</p>
+  </footer>
+</body>
+
 </html>
