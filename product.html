@@ -12,10 +12,8 @@
   <!-- Bootstrap CSS & Other CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
-    integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
   <link rel="stylesheet" href="./Front/css/bootstrap.css">
+  <script src="https://kit.fontawesome.com/3549ae622e.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"
     defer></script>
@@ -44,10 +42,20 @@
                     class="ml-2 text-dark border p-1 bg-light"></span>
                 </a>
 
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownlist">
-                  <li id="itempanier"></li>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li id="msg-cart">
+                  </li>
+                  <li>
+                    <table id="cart-items">
+                    </table>
+                  </li>
+                  <h3>Total : <span class="cart-total">0</span>€</h3>
+                  <li>
+                    <button class="clear-btn px-3 btn-link clear-cart">vider le panier</button>
+                  </li>
                 </ul>
               </div>
+
             </li>
           </ul>
         </nav>

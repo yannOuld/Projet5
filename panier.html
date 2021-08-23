@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./Front/css/bootstrap.css">
+  <script src="./Front/js/tableau_panier.js" defer></script>
+  <script src="/Front/js/form.js" defer></script>
 </head>
 
 <body>
@@ -21,15 +23,11 @@
     <header id="header" class="container-fluid">
       <div class="d-flex justify-content-between bg-dark">
         <h1 class="text-light ml-5 mt-3">Orinocam</h1>
-        <nav class="nav mr-5 mt-5">
+        <ul class="nav mr-5 mt-5">
           <li class="nav-item">
             <a class="nav-link active text-light" href="index.html">Accueil</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="panier.html">Votre panier <span id="cart"
-                class="text-dark border p-1 bg-light"></span></a>
-          </li>
-        </nav>
+        </ul>
       </div>
       <div class="jumbotron banner">
         <div class="container">
@@ -46,44 +44,59 @@
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th>Nom</th>
-              <th class="text-right">Option</th>
-              <th class="text-right">Prix</th>
-              <th class="text-right">Quantité</th>
+              <th class="text-left">
+                <p class="title_image">Image</p>
+              </th>
+              <th class="text-right">
+                <p class="title_qte">Quantité</p>
+              </th>
+              <th class="text-right">
+                <p class="title_name">Nom</p>
+              </th>
+              <th class="text-right">
+                <p class="title_price">Prix</p>
+              </th>
+              <th class="text-right">
+                <p class="title_total">Total</p>
+              </th>
             </tr>
           </thead>
         </table>
       </div>
-      <div class="container">
+      <div class="container bg-light">
         <h2 class="text-light bg-dark pl-5">Valider votre commande</h2>
-        <form class="row g-2">
+        <form class="row g-2" method="GET" id="form">
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <label for="user-firstname" class="form-label">Prénom</label>
             <input type="text" class="form-control" id="user-firstname">
+            <small></small>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <label for="user-name" class="form-label">nom</label>
             <input type="text" class="form-control" id="user-name">
+            <small></small>
           </div>
           <div class="col-12">
             <label for="user-adress" class="form-label">Votre adresse</label>
             <input type="text" class="form-control" id="user-adress">
+            <small></small>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <label for="user-city" class="form-label">Ville</label>
             <input type="text" class="form-control" id="user-city">
+            <small></small>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <small></small>
           </div>
-          <button type="submit" class="btn btn-primary btn-sm mt-3 mx-auto ">Submit</button>
+          <button type="submit" class="btn btn-primary btn-sm mt-3 mx-auto" id="">Submit</button>
         </form>
       </div>
     </div>
   </div>
   <footer class="container-fluid dark"></footer>
-  <script src="./Front/js/code.js"></script>
 </body>
 
 </html>
