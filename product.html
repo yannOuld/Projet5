@@ -31,8 +31,7 @@
               <a class="nav-link active text-light" href="index.html">Accueil</a>
             </li>
             <li class="nav-item">
-              <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                aria-controls="collapseExample" class="nav-link text-light" href="panier.html">Votre panier</a>
+              <a class="nav-link text-light" href="panier.html">Votre panier</a>
             </li>
             <li>
               <div class="dropdown">
@@ -42,16 +41,16 @@
                     class="ml-2 text-dark border p-1 bg-light"></span>
                 </a>
 
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <ul class="dropdown-menu px-3" aria-labelledby="dropdownMenuLink">
                   <li id="msg-cart">
                   </li>
                   <li>
                     <table id="cart-items">
                     </table>
                   </li>
-                  <h3>Total : <span class="cart-total">0</span>€</h3>
+                  <h3 class="ml-2">Total : <span class="cart-total">0</span>€</h3>
                   <li>
-                    <button class="clear-btn px-3 btn-link clear-cart">vider le panier</button>
+                    <button class="clear-btn mx-4 btn-link clear-cart">vider le panier</button>
                   </li>
                 </ul>
               </div>
@@ -83,6 +82,10 @@
           <div class=" d-flex justify-content-around container my-5">
             <label for="select_option" class="label"></label>
             <select name="select_option" id="select_option" class="select-option">
+            </select>
+            <label for="select_qte" class="label-qte"></label>
+            <select name="select_qte" id="select_qte" class="select-qte">
+              <option class="option-qte" value="1"></option>
             </select>
           </div>
           <button type="submit" id="add-btn"

@@ -17,13 +17,11 @@ const fetchProduct = async () => {
         (response) => response.json()
     );
 };
-console.log(fetchProduct());
 
 // ------------faire apparaître le produit
 const showProduct = async () => {
     // recuperation du produit dans la promesse fetchproduct
     const product = { ...await fetchProduct(), amount: 1 };
-    console.log(product);
     if ("_id" in product) {
         // injection du template
         return productTemplate(product, productwrapper);
@@ -32,7 +30,7 @@ const showProduct = async () => {
     }
 };
 
-// ------------contenu html de l'objet
+// ------------ Template pour l'affichage du produit 
 function productTemplate(product, productwrapper) {
     if ("content" in document.createElement("template")) {
         // liées les variables à des selecteurs du template
@@ -43,10 +41,15 @@ function productTemplate(product, productwrapper) {
             description = tempclone.querySelector(".card-text"),
             price = tempclone.querySelector(".card-price"),
             label = tempclone.querySelector(".label"),
+            label_qte = tempclone.querySelector(".label-qte"),
+            option_qte = tempclone.querySelector(".option-qte"),
             add_button = tempclone.querySelector(".add-btn"),
-            select = tempclone.querySelector(".select-option");
+            select = tempclone.querySelector(".select-option"),
+            select_qte = tempclone.querySelector(".select-qte");
         // ajouter du contenu aux variables
         label.innerHTML = "Options :";
+        label_qte.innerHTML = "Quantité :";
+        option_qte.innerHTML = product.amount
         name.innerHTML = product.name;
         img.src = product.imageUrl;
         description.innerHTML = product.description;
@@ -57,18 +60,11 @@ function productTemplate(product, productwrapper) {
             option = document.createElement("option");
             option.innerHTML = lense;
             option.value = lense;
-            console.log(option);
             select.appendChild(option);
         });
         // ajout au panier avec le bouton
         add_button.addEventListener("click", (e) => {
-            addItemStorage(product);
-            disabledBtn();
-            confirmationPopUp(product);
-            cartTotal();
-            countCart();
-            showCart();
-
+            populateStorage(product);
         });
         productwrapper.appendChild(tempclone);
     } else {
@@ -95,22 +91,27 @@ function productTemplate(product, productwrapper) {
 </figure > `);
     }
 }
-function confirmationPopUp(product) {
-    if (
-        window.confirm(`${product.name} est ajoutée au panier appuyer sur OK pour
-        consulter le panier ou ANNULER pour  rester sur la page`)
-    ) {
-        window.location.href = "panier.html";
-    }
-}
 
-// -------------- Event d'apparition de ShowProduct au chargement du DOM
+// -------------- Event d'apparition au chargement du DOM
 document.addEventListener("DOMContentLoaded", showProduct);
-
+document.addEventListener("DOMContentLoaded", showCart);
 // ------------------------------  LocalStorage -------------------- /
 
+// -------------- fonction pour l'evenement du bouton ajouter au panier 
+function populateStorage(product) {
+    addItemStorage(product);
+    window.location.reload();
+    confirmationPopUp(product);
+    disabledBtn();
+}
 
-function populateStorage() {
+// ----------------- fenetre de confirmation du produit dans le panier
+function confirmationPopUp(product) {
+    if (
+        window.confirm(`${product.name} est ajoutée au panier ! Voulez vous retourner a la page d'accueiil ?`)
+    ) {
+        window.location.href = "index.html";
+    }
 }
 
 // ----------------- Ajouter des item au localStorage
@@ -125,6 +126,13 @@ function addItemStorage(product) {
     console.log(storage);
 }
 
+// ----------------- desactiver le bouton une fois le produit dans le panier
+function disabledBtn() {
+    button = document.querySelector(".add-btn");
+    button.innerHTML = "votre article est dans le panier";
+    button.disabled = true;
+}
+
 // ----------------- Compteur du prix total du panier
 function cartTotal() {
     temptotal = 0;
@@ -135,13 +143,6 @@ function cartTotal() {
     cart_total = document.querySelector('.cart-total');
     cart_total.innerHTML = parseFloat(temptotal.toFixed(2));
 };
-
-// ----------------- desactiver le bouton une fois le produit dans le panier
-function disabledBtn() {
-    button = document.querySelector(".add-btn");
-    button.innerHTML = "votre article est dans le panier";
-    button.disabled = true;
-}
 
 // ----------------- Compteur du nombre d'elements dans le panier
 function countCart() {
@@ -158,39 +159,41 @@ function countCart() {
 function showCart() {
     let items = JSON.parse(localStorage.getItem('item'));
     let table_cart = document.getElementById('cart-items');
-
+    let clear_btn = document.querySelector('.clear-cart');
+    // ajout des produits au cart
     items.forEach((item) => {
         let tr = document.createElement('tr');
         tr.classList.add('cart-item');
-        tr.innerHTML = `<td class="px-2"> qté : ${item.amount}</td><td class="px-2">${item.name}</td><td class="px-2">${item.price / 100}€</td><td><button class="remove-btn btn-danger text-light px-2">X</button></td>`;
+        tr.innerHTML = `<td class="px-2"> ${item.amount}x</td><td class="px-2">${item.name}</td><td class="px-2">${item.price / 100}€</td><td><button class="remove-btn btn-danger text-light px-2">X</button></td>`;
         table_cart.appendChild(tr);
     });
+    clearStorage();
+    countCart();
+    cartTotal();
 };
+
 
 // -------------- Gerer la quantité d'objet dans le localstorage
 function setQuantity() {
-    let items = JSON.parse(localStorage.getItem('item'));
+    let items = JSON.parse(localStorage.getItem('item')) || [];
 
-    if (items != null) {
-        items[product._id].amount += 1;
+    const item = items.find(item => product._id = item._id);
+
+    if (item == false) {
+        item = product
+        items.push(item)
     } else {
-        product.amount = 1;
-        items = {
-            [product._id]: product
-        };
+        item.amount += 1;
     };
+    localStorage.setItem('item', JSON.stringify(item))
 };
 
-// -------------- Fonction pour retirer un objet du panier
+// -------------- Fonction pour vider le panier
 function clearStorage() {
     clear_btn = document.querySelector('.clear-cart');
     clear_btn.addEventListener("click", (e) => {
-        localStorage.clear();
+        localStorage.removeItem('item');
         window.location.reload();
     });
 }
 
-// ----------- vider le panier
-function clearStorage() {
-    localStorage.removeItem('item');
-}
