@@ -16,7 +16,6 @@ const showCameras = async () => {
         cameras
             .map(createCamera).join('')
     )
-    console.log(cameras)
 };
 
 // creation des cartes produits en dynamique 
