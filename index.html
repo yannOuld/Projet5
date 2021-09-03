@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./Front/css/bootstrap.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"
+        defer></script>
     <script src="https://kit.fontawesome.com/3549ae622e.js" crossorigin="anonymous"></script>
     <script src="./Front/js/index.js" defer></script>
 </head>
@@ -21,15 +24,13 @@
     <header id="header" class="container-fluid">
         <div class="row d-flex justify-content-between bg-dark">
             <h1 class="text-light ml-5 mt-3">Orinocam</h1>
-            <nav class="row nav mr-5 mt-5">
-                <ul class=" col-sm-12 col-xs-12 d-flex">
+            <nav class="nav mr-5 mt-5">
+                <ul class="d-flex">
                     <li class="nav-item">
                         <a class="nav-link active text-light" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                            aria-controls="collapseExample" class="nav-link text-light" href="panier.html">Votre
-                            panier</a>
+                        <a class="nav-link text-light" href="panier.html">Votre panier</a>
                     </li>
                     <li>
                         <div class="dropdown">
@@ -39,8 +40,18 @@
                                     class="ml-2 text-dark border p-1 bg-light"></span>
                             </a>
 
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdown">
-                                <li id="itempanier"></li>
+                            <ul class="dropdown-menu px-3" aria-labelledby="dropdownMenuLink">
+                                <li id="msg-cart">
+                                </li>
+                                <li>
+                                    <table id="cart-items">
+                                    </table>
+                                </li>
+                                <h3 class="ml-2">Total : <span class="cart-total">0</span>€</h3>
+                                <li>
+                                    <a href="panier.html" class="btn btn-info clear-btn mx-4  clear-cart">voir
+                                        panier</a>
+                                </li>
                             </ul>
                         </div>
                     </li>

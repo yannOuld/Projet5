@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: path.join(__dirname, 'app', 'index'),
@@ -11,6 +12,13 @@ module.exports = {
   },
   module: {
     rules: [{
+      test: /\.html$/,
+      use: [
+        {
+          loader: "html-loader",
+          options: { minimize: true }
+        }
+      ],
       test: /.jsx?$/,
       option: {
         minimize: true,
