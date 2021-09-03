@@ -24,3 +24,41 @@ body {
 ul {
   list-style: none;
 }
+.card {
+  min-width: 300px;
+  max-width: 600px;
+}
+
+@media screen and (max-width: 1030px) {
+  body {
+    width: 100%;
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  nav {
+    display: flex;
+  }
+  nav li {
+    padding-right: 10px;
+  }
+  #product-wrapper {
+    width: 100%;
+  }
+  .card {
+    min-width: 300px;
+    max-width: 400px;
+  }
+  label {
+    display: block;
+  }
+  .header-wrap {
+    flex-direction: column;
+  }
+  .index-wrapper {
+    padding: 0;
+    margin: auto;
+  }
+}
