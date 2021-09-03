@@ -1,3 +1,4 @@
+//---------------------------- panier dynamique du bouton de la navigation ------------------------------//
 // ----------------- Compteur du prix total du panier
 const cartTotal = () => {
     temptotal = 0;
@@ -19,7 +20,6 @@ const countCart = () => {
     cart_count = document.querySelector('#cart');
     cart_count.innerHTML = itemtotal;
 }
-
 // ---------------- Affichage des produits dans le panier
 const showCart = () => {
     let items = JSON.parse(localStorage.getItem('item'));
@@ -36,6 +36,4 @@ const showCart = () => {
     cartTotal();
 
 };
-export { cartTotal };
-export { countCart };
-export { showCart };
+document.addEventListener("DOMContentLoaded", showCart);

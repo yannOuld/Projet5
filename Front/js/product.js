@@ -26,7 +26,7 @@ const showProduct = async () => {
         // injection du template
         return productTemplate(product, productwrapper);
     } else {
-        return (productwrapper.innerHTML = `Your product doesn't exist`);
+        return (productwrapper.innerHTML = `<h1 class=" ml-5 text-light">Your product doesn't exist<h1>`);
     }
 };
 
@@ -64,6 +64,7 @@ function productTemplate(product, productwrapper) {
         });
         // ajout au panier avec le bouton
         add_button.addEventListener("click", (e) => {
+            e.preventDefault();
             populateStorage(product);
         });
         productwrapper.appendChild(tempclone);
@@ -77,18 +78,8 @@ function productTemplate(product, productwrapper) {
 // -------------- fonction pour l'evenement du bouton ajouter au panier 
 function populateStorage(product) {
     addItemStorage(product);
-    window.location.reload();
-    confirmationPopUp(product);
-    disabledBtn();
-}
 
-// ----------------- fenetre de confirmation du produit dans le panier
-function confirmationPopUp(product) {
-    if (
-        window.confirm(`${product.name} est ajoutée au panier ! Voulez vous retourner a la page d'accueiil ?`)
-    ) {
-        window.location.href = "index.html";
-    }
+    disabledBtn();
 }
 
 // ----------------- Ajouter des item au localStorage
@@ -126,45 +117,6 @@ function setQuantity() {
     localStorage.setItem('item', JSON.stringify(item))
 };
 
-//---------------------------- panier dynamique du bouton de la navigation ------------------------------//
-// ----------------- Compteur du prix total du panier
-const cartTotal = () => {
-    temptotal = 0;
-    items = JSON.parse(localStorage.getItem('item'));
-    items.map(item => {
-        temptotal += item.price * item.amount / 100;
-    });
-    cart_total = document.querySelector('.cart-total');
-    cart_total.innerHTML = parseFloat(temptotal.toFixed(2));
-};
-
-// ----------------- Compteur du nombre d'elements dans le panier
-const countCart = () => {
-    itemtotal = 0;
-    items = JSON.parse(localStorage.getItem('item'));
-    items.map(item => {
-        itemtotal += item.amount;
-    });
-    cart_count = document.querySelector('#cart');
-    cart_count.innerHTML = itemtotal;
-}
-// ---------------- Affichage des produits dans le panier
-const showCart = () => {
-    let items = JSON.parse(localStorage.getItem('item'));
-    let table_cart = document.getElementById('cart-items');
-    let clear_btn = document.querySelector('.clear-cart');
-    // ajout des produits au cart
-    items.forEach((item) => {
-        let tr = document.createElement('tr');
-        tr.classList.add('cart-item');
-        tr.innerHTML = `<td class="px-2"> ${item.amount}x</td><td class="px-2">${item.name}</td><td class="px-2">${item.price / 100}€</td>`;
-        table_cart.appendChild(tr);
-    });
-    countCart();
-    cartTotal();
-
-};
 
 // -------------- Event d'apparition au chargement du DOM
 document.addEventListener("DOMContentLoaded", showProduct);
-document.addEventListener("DOMContentLoaded", showCart);
