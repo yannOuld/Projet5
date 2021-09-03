@@ -56,8 +56,6 @@ function isEmail(email) {
     return /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i.test(email)
 }
 
-
-
 // ------------ fonction qui envoie les messages d'erreurs
 function setErrorFor(input, message) {
     const formControl = input.parentElement;
@@ -78,8 +76,7 @@ function setSuccesFor(input) {
     small.className = 'text-success'
 
 }
-// ------------ requete serveur
-
+// ------------ evenement du bouton submit du formulaire 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     checkinput();
@@ -87,46 +84,41 @@ form.addEventListener('submit', (e) => {
 
 });
 
+// ------------ Envoyer le formulaire à l'api et enregistrement dans le localStorage
 function passOrder66() {
-    let formData = {
-        'prenom': firstname.value.trim(),
-        'nom': username.value.trim(),
-        'email': email.value.trim(),
-        'adresse': adress.value.trim(),
-        'ville': city.value.trim()
+    //mise en forme des données pour quelles soit accepter par le serveur 
+    let contact = {
+        firstName: firstname.value.trim(),
+        lastName: username.value.trim(),
+        address: adress.value.trim(),
+        city: city.value.trim(),
+        email: email.value.trim()
     };
 
-
-    const listproducts = [];
+    const products = [];
     items.forEach(item => {
-        listproducts.push(item._id)
+        products.push(item._id)
     });
 
-
-
-    //envoie des données formulaire au serveur
-    const contact = formData, listproducts;
-    console.log(contact);
-    const order = JSON.stringify(contact);
-    console.log('hello');
-    console.log(order);
+    //envoie des données formulaire au serveur avec la methode POST
+    let order = { products, contact };
     const postRequest = fetch(API_Url, {
         method: "POST",
-        body: order,
+        body: JSON.stringify(order),
         headers: {
-            'Accept': 'application / json',
-            'Content-type': 'application/json'
+            'accept': 'application/json',
+            'content-type': 'application/json ; charset=utf-8'
         },
     })
 
     postRequest.then(async (response) => {
         try {
             const requestOrder = await response.json();
-            console.log(requestOrder);
+            localStorage.setItem('commande', JSON.stringify(requestOrder));
+
         } catch (e) {
             console.log(e);
         }
     })
-
 }
 

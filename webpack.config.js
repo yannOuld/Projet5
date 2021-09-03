@@ -12,6 +12,9 @@ module.exports = {
   module: {
     rules: [{
       test: /.jsx?$/,
+      option: {
+        minimize: true,
+      },
       include: [
         path.resolve(__dirname, 'app')
       ],

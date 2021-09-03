@@ -68,27 +68,7 @@ function productTemplate(product, productwrapper) {
         });
         productwrapper.appendChild(tempclone);
     } else {
-        return (productwrapper.innerHTML = `<figure class="shadow card col-9 mx-auto p-5" id="product-template">
-        <img src="${product.imageUrl}" class="card-img-top" alt="">
-        <figcaption>
-        <h2 class="card-title">${product.name}</h2>
-        <p class="card-text">${product.description}</p>
-        <p class="card-price">Prix : ${product.price} €</p>
-        <form class="d-flex justify-content-around container my-5">
-        <label for="select_option">choisir votre objectif</label>
-        <select name="select_option" id="select_option">
-        <option>choisir une option</option>
-        <option value="option1">${product.lenses[0] ? product.lenses[0] : ""
-            }</option>
-    <option value="option2">${product.lenses[1] ? product.lenses[1] : ""
-            }</option>
-<option value="option3">${product.lenses[2] ? product.lenses[2] : ""
-            }</option>
-</select >
-</form>
-<button id="add-btn" type="submit" class="btn btn-primary add-panier btn_sm text-light d-block mt-2">Ajouter au panier</button>
-</figcaption >
-</figure > `);
+        return (productwrapper.innerHTML = `Désolée votre navigateur ne prends pas en charge le site internet ! `);
     }
 }
 
@@ -164,14 +144,13 @@ function showCart() {
     items.forEach((item) => {
         let tr = document.createElement('tr');
         tr.classList.add('cart-item');
-        tr.innerHTML = `<td class="px-2"> ${item.amount}x</td><td class="px-2">${item.name}</td><td class="px-2">${item.price / 100}€</td><td><button class="remove-btn btn-danger text-light px-2">X</button></td>`;
+        tr.innerHTML = `<td class="px-2"> ${item.amount}x</td><td class="px-2">${item.name}</td><td class="px-2">${item.price / 100}€</td>`;
         table_cart.appendChild(tr);
     });
-    clearStorage();
     countCart();
     cartTotal();
-};
 
+};
 
 // -------------- Gerer la quantité d'objet dans le localstorage
 function setQuantity() {
@@ -187,13 +166,4 @@ function setQuantity() {
     };
     localStorage.setItem('item', JSON.stringify(item))
 };
-
-// -------------- Fonction pour vider le panier
-function clearStorage() {
-    clear_btn = document.querySelector('.clear-cart');
-    clear_btn.addEventListener("click", (e) => {
-        localStorage.removeItem('item');
-        window.location.reload();
-    });
-}
 

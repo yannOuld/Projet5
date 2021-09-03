@@ -1,43 +1,50 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <title>Orinocam - Accueil</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keyword" content=""/>
-    <meta name="description" content="">
-    <link rel="cannonical" href="">
-    <!-- Bootstrap CSS & Other CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container-fluid">
-      <header id="header" class="container-fluid">
-        <div class="d-flex justify-content-between">
-                <h1>Orinocam</h1>
-                <nav class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="panier.html">Votre panier</a>
-                    </li>
-                </ul>
-        </div>
-      </header>
-      
-      <div class="jumbotron bg-success">
-          <div class="row">
-            <div class="col">
-              <div class="container">
-                <h1 class="text-light">Merci de votre Commande ! </h1>
-                <p class="text-light"> Nous vous confirmons que votre commande numéro<span id="identifiant"></span> d'une valeur de <span id="commande-price"></span> à bien été prise en compte. Vous recevrez par e-mail les détails de la livraison ! </p>
-            </div>
-          </div>
-          </div>
+
+<head>
+  <title>Orinocam - Accueil</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keyword" content="" />
+  <meta name="description" content="">
+  <link rel="cannonical" href="">
+  <link rel="stylesheet" href="./Front/css/bootstrap.css">
+  <!-- Bootstrap CSS & Other CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="/Front/js/validation.js" defer></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header id="header" class="container-fluid">
+      <div class="d-flex justify-content-between bg-dark">
+        <h1 class="text-light ml-5 mt-3">Orinocam</h1>
+        <ul class="nav mr-5 mt-5">
+          <li class="nav-item">
+            <a class="nav-link active text-light" href="index.html">Accueil</a>
+          </li>
+        </ul>
       </div>
-       
+    </header>
+
+    <div class="jumbotron mt-5 container bg-success">
+      <div class="row">
+        <div class="col">
+          <div class="container">
+            <h1 class="text-light">Merci de votre Commande ! </h1>
+            <p class="text-light"> Nous vous confirmons que votre commande numéro <span class="text-warning"
+                id="order-identifiant"></span>
+              d'une valeur de <span id="commande-price"></span>€ à bien été prise en compte. Vous recevrez par e-mail
+              les
+              détails de la livraison. </p>
+          </div>
+        </div>
+      </div>
     </div>
-  </body>
-  </html>
+
+  </div>
+</body>
+
+</html>
