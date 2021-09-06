@@ -1,6 +1,5 @@
 
 const productwrapper = document.getElementById("product-wrapper");
-
 // ------------fonction pour récuperer l'id
 function getProductId() {
     // recuperation de la chaîne de requete dans l'url
@@ -44,8 +43,7 @@ function productTemplate(product, productwrapper) {
             label_qte = tempclone.querySelector(".label-qte"),
             option_qte = tempclone.querySelector(".option-qte"),
             add_button = tempclone.querySelector(".add-btn"),
-            select = tempclone.querySelector(".select-option"),
-            select_qte = tempclone.querySelector(".select-qte");
+            select = tempclone.querySelector(".select-option");
         // ajouter du contenu aux variables
         label.innerHTML = "Options :";
         label_qte.innerHTML = "Quantité :";
@@ -65,7 +63,10 @@ function productTemplate(product, productwrapper) {
         // ajout au panier avec le bouton
         add_button.addEventListener("click", (e) => {
             e.preventDefault();
+            window.location.reload();
+            showCart();
             populateStorage(product);
+            console.log(e);
         });
         productwrapper.appendChild(tempclone);
     } else {
@@ -78,7 +79,6 @@ function productTemplate(product, productwrapper) {
 // -------------- fonction pour l'evenement du bouton ajouter au panier 
 function populateStorage(product) {
     addItemStorage(product);
-
     disabledBtn();
 }
 
@@ -91,7 +91,6 @@ function addItemStorage(product) {
     }
     storage.push(product);
     localStorage.setItem("item", JSON.stringify(storage));
-    console.log(storage);
 }
 
 // ----------------- desactiver le bouton une fois le produit dans le panier
@@ -100,23 +99,6 @@ function disabledBtn() {
     button.innerHTML = "votre article est dans le panier";
     button.disabled = true;
 }
-
-
-// -------------- Gerer la quantité d'objet dans le localstorage
-function setQuantity() {
-    let items = JSON.parse(localStorage.getItem('item')) || [];
-
-    const item = items.find(item => product._id = item._id);
-
-    if (item == false) {
-        item = product
-        items.push(item)
-    } else {
-        item.amount += 1;
-    };
-    localStorage.setItem('item', JSON.stringify(item))
-};
-
 
 // -------------- Event d'apparition au chargement du DOM
 document.addEventListener("DOMContentLoaded", showProduct);

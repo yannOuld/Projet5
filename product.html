@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="keyword" content="" />
   <meta name="description" content="">
-  <link rel="cannonical" href="">
+  <link rel="cannonical" href="index.html">
   <!-- Bootstrap CSS & Other CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -49,7 +49,9 @@
                     <table id="cart-items">
                     </table>
                   </li>
-                  <h3 class="ml-2">Total : <span class="cart-total">0</span>€</h3>
+                  <li>
+                    <h3 class="ml-2">Total : <span class="cart-total">0</span>€</h3>
+                  </li>
                   <li>
                     <a href="panier.html" class="btn btn-info clear-btn mx-4  clear-cart">voir panier</a>
                   </li>
@@ -76,7 +78,7 @@
     <template id="template">
       <figure id="figure" class=" shadow card col-sm-12 col-xs-12 col-md-12 col-9 mx-auto">
         <img src="" class="card-img-top" alt="">
-        <figcaption class="card-body text-xs-right p-5" id="figcapt">
+        <figcaption class="card-body text-xs-right p-4" id="figcapt">
           <h2 class="card-title"></h2>
           <p class=" card-text"></p>
           <p class="card-price"></p>
@@ -84,13 +86,13 @@
             <label for="select_option" class="label"></label>
             <select name="select_option" id="select_option" class="select-option">
             </select>
-            <label for="select_qte" class="label-qte"></label>
+            <label for="option_qte" class="label-qte"></label>
             <select name="select_qte" id="select_qte" class="select-qte">
-              <option class="option-qte" value="1"></option>
+              <option class="option-qte"></option>
             </select>
           </div>
           <button type="submit" id="add-btn"
-            class="add-btn btn btn-lg btn-block btn-outline-dark add-panier  d-block mt-2"></a>
+            class="add-btn btn btn-lg btn-block btn-outline-dark add-panier  d-block mt-2"></button>
         </figcaption>
       </figure>
     </template>

@@ -5,7 +5,6 @@ function priceValidation() {
     items.map(item => {
         total += item.price * item.amount / 100;
     })
-
     let validationPrice = document.getElementById('commande-price');
     validationPrice.innerHTML = parseInt(total);
 }
@@ -18,9 +17,9 @@ function orderValidation() {
 }
 
 
-function Order() {
+function order66() {
     priceValidation();
     orderValidation();
 }
 
-document.addEventListener('DOMContentLoaded', Order)
+document.addEventListener('DOMContentLoaded', order66)
