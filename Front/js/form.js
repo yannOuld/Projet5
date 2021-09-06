@@ -21,50 +21,33 @@ function checkinput() {
 
     // verifier chaque valeur des input
     if (usernameValue === '') {
-        setErrorFor(username, 'Le nom doit etre rempli !')
+
     } else {
         setSuccesFor(username)
     }
     if (firstnameValue === '') {
-        setErrorFor(firstname, 'Le prénom doit etre rempli !')
+
     }
     else {
         setSuccesFor(firstname)
     }
     if (adressValue === '') {
-        setErrorFor(adress, 'votre adresse doit etre rempli !')
+
     } else {
         setSuccesFor(adress)
     }
     if (cityValue === '') {
-        setErrorFor(city, 'vous devez indiquez votre ville !')
+
     }
     else {
         setSuccesFor(city)
     }
     if (emailValue === '') {
-        setErrorFor(email, 'vous devez indiquez un email !')
-    } else if (!isEmail(emailValue)) {
-        setErrorFor(email, 'email non valide !')
+
     } else {
         setSuccesFor(email);
     }
 };
-
-// ------------ verifier si la valeur de l'input est un email
-function isEmail(email) {
-    return /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i.test(email)
-}
-
-// ------------ fonction qui envoie les messages d'erreurs
-function setErrorFor(input, message) {
-    const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
-    // ajouter le message d'erreur 
-    small.innerText = message;
-    // ajouter une classe au message d'erreur 
-    small.className = 'text-danger'
-}
 
 // ------------ fonction qui envoie un message de confirmation de l'input 
 function setSuccesFor(input) {
@@ -74,15 +57,20 @@ function setSuccesFor(input) {
     small.textContent = 'ok ! ';
     // ajouter une classe au message d'erreur 
     small.className = 'text-success'
-
 }
-// ------------ evenement du bouton submit du formulaire 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    checkinput();
-    passOrder66();
 
-});
+// ------------ evenement du bouton submit du formulaire 
+function formBtn() {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        checkinput();
+        if (localStorage.getItem('item')) {
+            passOrder66();
+        } else {
+            window.alert("Votre panier est vide !")
+        }
+    });
+}
 
 // ------------ Envoyer le formulaire à l'api et enregistrement dans le localStorage
 function passOrder66() {
@@ -115,6 +103,9 @@ function passOrder66() {
         try {
             const requestOrder = await response.json();
             localStorage.setItem('commande', JSON.stringify(requestOrder));
+            if (localStorage.getItem('commande')) {
+                document.location.href = "./commande.html"
+            }
 
         } catch (e) {
             console.log(e);
@@ -122,3 +113,4 @@ function passOrder66() {
     })
 }
 
+document.addEventListener("DOMContentLoaded", formBtn);
