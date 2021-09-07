@@ -66,7 +66,7 @@ function formBtn() {
         e.preventDefault();
         checkinput();
         const items = cartStorage.getItem();
-        if (items.lenght > 0) {
+        if (localStorage.getItem('item')) {
             passOrder66();
         } else {
             window.alert("Votre panier est vide !")
@@ -76,6 +76,7 @@ function formBtn() {
 
 // ------------ Envoyer le formulaire à l'api et enregistrement dans le localStorage
 function passOrder66() {
+    const items = cartStorage.getItem();
     //mise en forme des données pour quelles soit accepter par le serveur 
     let contact = {
         firstName: firstname.value.trim(),
