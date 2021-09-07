@@ -1,4 +1,5 @@
-
+import * as cart from "./cart.js";
+import * as cartStorage from "./cartStorage.js";
 const productwrapper = document.getElementById("product-wrapper");
 // ------------fonction pour récuperer l'id
 function getProductId() {
@@ -55,7 +56,7 @@ function productTemplate(product, productwrapper) {
         add_button.innerHTML = "Ajouter au panier";
         //iteration des options du produit
         product.lenses.forEach((lense) => {
-            option = document.createElement("option");
+            let option = document.createElement("option");
             option.innerHTML = lense;
             option.value = lense;
             select.appendChild(option);
@@ -63,14 +64,12 @@ function productTemplate(product, productwrapper) {
         // ajout au panier avec le bouton
         add_button.addEventListener("click", (e) => {
             e.preventDefault();
-            window.location.reload();
-            showCart();
             populateStorage(product);
-            console.log(e);
         });
         productwrapper.appendChild(tempclone);
     } else {
-        return (productwrapper.innerHTML = `Désolée votre navigateur ne prends pas en charge le site internet ! `);
+        productwrapper.innerHTML = `Désolée votre navigateur ne prends pas en charge le site internet ! `;
+        throw new Error('unsupported browser');
     }
 };
 
@@ -80,22 +79,19 @@ function productTemplate(product, productwrapper) {
 function populateStorage(product) {
     addItemStorage(product);
     disabledBtn();
+    cart.showCart();
 }
 
 // ----------------- Ajouter des item au localStorage
 function addItemStorage(product) {
-    let storage = JSON.parse(localStorage.getItem("item"));
-
-    if (!storage) {
-        storage = [];
-    }
+    let storage = cartStorage.getItem();
     storage.push(product);
-    localStorage.setItem("item", JSON.stringify(storage));
+    cartStorage.setItem(storage);
 }
 
 // ----------------- desactiver le bouton une fois le produit dans le panier
 function disabledBtn() {
-    button = document.querySelector(".add-btn");
+    let button = document.querySelector(".add-btn");
     button.innerHTML = "votre article est dans le panier";
     button.disabled = true;
 }

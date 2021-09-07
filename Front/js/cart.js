@@ -1,41 +1,43 @@
+import * as cartStorage from "./cartStorage.js";
+
 //---------------------------- panier dynamique du bouton de la navigation ------------------------------//
-let items = JSON.parse(localStorage.getItem('item'));
 // ----------------- Compteur du prix total du panier
-const cartTotal = () => {
-    temptotal = 0;
-    if (localStorage.getItem('item')) {
-        items.map(item => {
-            temptotal += item.price * item.amount / 100;
-        });
-    }
-    cart_total = document.querySelector('.cart-total');
+export const cartTotal = () => {
+    let temptotal = 0;
+    const items = cartStorage.getItem();
+    items.map(item => {
+        temptotal += item.price * item.amount / 100;
+    });
+
+    let cart_total = document.querySelector('.cart-total');
     cart_total.innerHTML = parseFloat(temptotal.toFixed(2));
 };
 
 // ----------------- Compteur du nombre d'elements dans le panier
-const countCart = () => {
-    itemtotal = 0;
-    if (localStorage.getItem('item')) {
-        items.map(item => {
-            itemtotal += item.amount;
-        });
-    }
-    cart_count = document.querySelector('#cart');
+export const countCart = () => {
+    let itemtotal = 0;
+    const items = cartStorage.getItem();
+    items.map(item => {
+        itemtotal += item.amount;
+    });
+
+    let cart_count = document.querySelector('#cart');
     cart_count.innerHTML = itemtotal;
 }
 // ---------------- Affichage des produits dans le panier
-const showCart = () => {
+export const showCart = () => {
     let table_cart = document.getElementById('cart-items');
-    if (localStorage.getItem('item')) {
-        // ajout des produits au cart
-        items.forEach((item) => {
-            let tr = document.createElement('tr');
-            tr.classList.add('cart-item');
-            tr.innerHTML = `<td class="px-2">${item.amount}x</td><td class="px-2">${item.name}</td><td class="px-2">${item.price / 100}€</td>`;
-            table_cart.appendChild(tr);
-        });
-    }
+    const items = cartStorage.getItem();
+    // ajout des produits au cart
+    items.forEach((item) => {
+        let tr = document.createElement('tr');
+        tr.classList.add('cart-item');
+        tr.innerHTML = `<td class="px-2">${item.amount}x</td><td class="px-2">${item.name}</td><td class="px-2">${item.price / 100}€</td>`;
+        table_cart.appendChild(tr);
+    });
     countCart();
     cartTotal();
 };
+
 document.addEventListener("DOMContentLoaded", showCart);
+

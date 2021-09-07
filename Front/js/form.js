@@ -1,5 +1,6 @@
 
 // ------------ varirables 
+import * as cartStorage from './cartStorage.js';
 const API_Url = 'http://localhost:3000/api/cameras/order';
 const table = document.querySelector('.table');
 const form = document.getElementById('form');
@@ -64,7 +65,8 @@ function formBtn() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         checkinput();
-        if (localStorage.getItem('item')) {
+        const items = cartStorage.getItem();
+        if (items.lenght > 0) {
             passOrder66();
         } else {
             window.alert("Votre panier est vide !")
